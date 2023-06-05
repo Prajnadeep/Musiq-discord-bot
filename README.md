@@ -34,7 +34,7 @@ python musiq_v1.py
 Once the bot is running and invited to your server, you can use the following commands:
 
 * <b>&play</b> song_name: Plays a song from YouTube based on the provided search keyword.
-* <b>&play</b> [YouTube URL](https://youtu.be/dQw4w9WgXcQ): Plays the audio from the provided YouTube video URL.
+* <b>&play</b> [YouTube_URL](https://youtu.be/dQw4w9WgXcQ): Plays the audio from the provided YouTube video URL.
 * <b>&joke</b>: Displays a random joke.
 * <b>&meme</b>: Displays a random meme.
 <br>
