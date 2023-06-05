@@ -16,12 +16,16 @@ To use this bot, you will need to have the following prerequisites:
 
 1. Clone or download this repository to your local machine.
 
+ Then generate the <b>token</b> and paste it in the script.
+ ``` python
+ client.run('YOUR TOKEN HERE')
+ ```
 2. Install the required dependencies by running the following command:
-```bash 
+```python 
 pip install -r requirements.txt
 ```
 3. Run the bot using the following command :
-```bash 
+```python 
 python musiq_v1.py
 ```
 4. Invite the bot to your Discord server using the OAuth2 URL generated for your bot. You can find detailed instructions on how to create and invite a bot to a Discord server [here.](https://discordpy.readthedocs.io/en/latest/discord.html)
