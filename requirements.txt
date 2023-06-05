@@ -1,0 +1,4 @@
+discord.py==2.2.3
+pytube==15.0.0
+Requests==2.31.0
+PyNaCl
