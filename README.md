@@ -46,6 +46,7 @@ Once the bot is running and invited to your server, you can use the following co
 * <b>&pause</b>: Pauses the currently playing song.
 * <b>&resume</b>: Resumes a paused song.
 * <b>&stop</b>: Stops playing and clears the song queue.
+* <b>&ping</b>: Displays the bot latency in ms.
   
   
 # Contributing
