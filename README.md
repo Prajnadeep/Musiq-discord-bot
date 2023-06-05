@@ -1,4 +1,9 @@
 # Musiq-discord-bot
+<div align="center">
+  <p>
+    <a href="#"><img src="https://raw.githubusercontent.com/Prajnadeep/Musiq-discord-bot/0933e9e876440155a96f1f02f028141eb32b8009/images/musiq.png" width="100" height="100" alt="Musiq Logo" /></a>
+  </p>
+  </div>
 
 This is a multipurpose Discord bot that can play music from YouTube using search keywords or URLs. Additionally, it can display memes and jokes when prompted with the prefix "&" followed by specific commands
 
