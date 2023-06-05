@@ -195,4 +195,4 @@ async def hello(ctx):
 
 # MAIN FUNCTION
 if __name__ == "__main__" :
-    bot.run("ODYyNzAzNzI1ODQ3MjQ4OTA4.G1c-K2.U_lMjmoUJYK4Xq5lE8vdS3cYEeuFKLtDAjY--Y")
+    bot.run("YOUR_TOKEN_HERE")
