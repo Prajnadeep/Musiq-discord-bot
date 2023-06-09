@@ -26,7 +26,7 @@ pip install -r requirements.txt
 ```
 3. Run the bot using the following command :
 ```python 
-python musiq_v1.py
+python bot.py
 ```
 4. Invite the bot to your Discord server using the OAuth2 URL generated for your bot. You can find detailed instructions on how to create and invite a bot to a Discord server [here.](https://discordpy.readthedocs.io/en/latest/discord.html)
 
