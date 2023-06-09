@@ -145,8 +145,7 @@ async def on_voice_state_update(member, before, after):
     if len(voice_channel.members) == 1:  # Only the bot is in the voice channel
         await asyncio.sleep(30)  # Wait for 30 seconds
         if len(voice_channel.members) == 1:  # Still no one has joined
-            await voice_client.disconnect()        
-        
+            await voice_client.disconnect()
 
 # DISPLAY JOKE
 @bot.command(description="display a joke")
@@ -172,6 +171,52 @@ async def meme(ctx):
     except:
         await ctx.send("Oh no!😖 Looks like something went wrong")
 
+# VALO
+@bot.command()
+async def valo(ctx, username, tag):
+    tag = tag.replace("#", "")
+
+    async with ctx.typing(): 
+    
+        try:
+            #Profile Info URL
+            profileUrl = 'https://api.henrikdev.xyz/valorant/v1/account/'+username+'/'+tag
+            profile = requests.get(profileUrl)
+            profileData = json.loads(profile.text)
+
+            # check if Valid Response
+            responseStatus = profileData['status']
+            if responseStatus!=200:
+                await ctx.send("Please recheck the Username and Tag !")
+            else:
+                playerName = profileData['data']['name']
+                playerTagline = profileData['data']['tag']
+                playerCardUrl = profileData['data']['card']['wide']
+                playerAccountLevel = profileData['data']['account_level']
+                
+                # Tier Info
+                rankingURL = 'https://api.henrikdev.xyz/valorant/v2/mmr/ap/'+username+'/'+tag
+                rank = requests.get(rankingURL)
+                rankData = json.loads(rank.text)
+
+                currentTier = rankData['data']['current_data']['currenttierpatched']
+                currentTierImage = rankData['data']['current_data']['images']['small']
+                highestTier = rankData['data']['highest_rank']['patched_tier']
+
+                # DISPLAY RESULTS
+                embedVar = discord.Embed(title="VALORANT Player Stats", color=0x00ff00)
+                embedVar.add_field(name="\u200b", value='**ID** : '+playerName+' #'+playerTagline, inline=False)
+                embedVar.add_field(name="\u200b", value='**Account Level** : '+str(playerAccountLevel), inline=False)
+                embedVar.add_field(name="\u200b", value='**Current Rank** : '+currentTier, inline=False)
+                embedVar.add_field(name="\u200b", value='**Highest Rank** : '+highestTier, inline=False)
+                embedVar.set_thumbnail(url=currentTierImage)
+                embedVar.set_image(url=playerCardUrl)
+                await ctx.send(embed=embedVar)
+
+        except Exception as e:
+            print(e)
+            await ctx.send("Oh no!😖 Looks like something went wrong")
+
 # HELP
 @bot.command(name='h')
 async def h(ctx):
@@ -183,19 +228,21 @@ async def h(ctx):
     embedVar.add_field(name="Current commands:",
                        value="----------------------------", inline=False)
     embedVar.add_field(
-        name="\u200b", value="**&joke** - display a joke", inline=False)
+        name="\u200b", value="**&valo** - Display Valorant player stats; usage: &valo Rock #X11", inline=False)
     embedVar.add_field(
-        name="\u200b", value="**&meme** - display a meme", inline=False)
+        name="\u200b", value="**&joke** - Display a joke", inline=False)
     embedVar.add_field(
-        name="\u200b", value="**&join** - join the voice channel", inline=False)
-    embedVar.add_field(name="\u200b", value="**&play/p song_name/url:** - play music from url/search keyword",
+        name="\u200b", value="**&meme** - Display a meme", inline=False)
+    embedVar.add_field(
+        name="\u200b", value="**&join** - Join the voice channel", inline=False)
+    embedVar.add_field(name="\u200b", value="**&play/p song_name/url:** - Play music from url/search keyword",
                        inline=False)
     embedVar.add_field(
-        name="\u200b", value="**&resume** - continue playback", inline=False)
+        name="\u200b", value="**&resume** - Continue playback", inline=False)
     embedVar.add_field(
-        name="\u200b", value="**&pause** - pause the current track", inline=False)
+        name="\u200b", value="**&pause** - Pause the current track", inline=False)
     embedVar.add_field(
-        name="\u200b", value="**&stop** - stop the current track", inline=False)
+        name="\u200b", value="**&stop** - Stop the current track", inline=False)
     embedVar.add_field(
         name="\u200b", value="**&leave/&dc** - Disconnect", inline=False)
     await ctx.channel.send(embed=embedVar)
