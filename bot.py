@@ -5,6 +5,7 @@ import random
 import requests
 import json
 import asyncio
+import re
 
 
 # INIT
@@ -171,10 +172,30 @@ async def meme(ctx):
     except:
         await ctx.send("Oh no!😖 Looks like something went wrong")
 
+# EXTRACT ID and Username
+def extract_user_and_tag(string):
+    pattern = r'^(.*)\s#(\w+)$'
+    match = re.match(pattern, string)
+    if match:
+        user = match.group(1)
+        tag = match.group(2)
+        return user, tag
+    else:
+        return None
+
 # VALO
 @bot.command()
-async def valo(ctx, username, tag):
-    tag = tag.replace("#", "")
+async def valo(ctx, *msg):
+    #tag = tag.replace("#", "")
+
+    string = str(' '.join(msg))
+    username, tag = extract_user_and_tag(string)
+    if username and tag:
+        print("User:", username)
+        print("Tag:", tag)
+    else:
+        print("Invalid string format.")
+        await ctx.send("Please recheck the Username and Tag !")
 
     async with ctx.typing(): 
     
@@ -230,7 +251,7 @@ async def valo(ctx, username, tag):
                 embedVar.add_field(name="\u200b", value='** ▶ Current Rank** : '+currentTier, inline=False)
                 embedVar.add_field(name="\u200b", value='** ⬆ Highest Rank** : '+highestTier, inline=False)
                 
-                embedVar.add_field(name='\u200b',value='**------------------ LAST MATCH DETAILS ------------------**',inline=False)
+                embedVar.add_field(name='\u200b',value='**-------------- LAST MATCH DETAILS --------------**',inline=False)
                 embedVar.add_field(name='\u200b',value='** 🗺 Map** - '+lastMatchMap, inline=False)
                 embedVar.add_field(name='\u200b',value='** ⚔ Mode**: '+lastMatchMode, inline=False)
                 embedVar.add_field(name='\u200b',value='** 🥴 Character**: '+character, inline=False)
