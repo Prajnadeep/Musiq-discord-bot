@@ -1,10 +1,11 @@
 # Musiq-discord-bot
 <div align="center">
   <p>
-    <a href="#"><img src="./images/logo.png" width="100" height="100" alt="Musiq Logo" /></a>
+    <a href="#"><img src="https://raw.githubusercontent.com/Prajnadeep/Musiq-discord-bot/main/images/logo.png" width="100" height="100" alt="Musiq Logo" /></a>
   </p>
   </div>
-<!-- ![Logo Musiq](https://github.com/Prajnadeep/Musiq-discord-bot/blob/main/images/logo.png) -->
+  
+<!-- ![Logo Musiq](./images/logo.png) -->
 
 This is a multipurpose Discord bot that can play music from YouTube using search keywords or URLs. Additionally, it can display memes and jokes when prompted with the prefix "&" followed by specific commands
 
@@ -60,3 +61,4 @@ When contributing code, make sure to follow the existing coding style and submit
 * [Discord.py](https://discordpy.readthedocs.io/en/stable/) - Discord API wrapper for Python.
 * [pytube](https://github.com/pytube) - Python library (and command-line utility) for downloading YouTube videos
 * [FFmpeg](https://ffmpeg.org/) - Open-source software for handling multimedia data.
+* <a href="https://www.flaticon.com/free-icons/music" title="music icons">Music icons created by Freepik - Flaticon</a>
