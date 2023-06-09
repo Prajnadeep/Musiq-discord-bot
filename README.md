@@ -5,7 +5,13 @@
   </p>
   </div>
  
-This is a multipurpose Discord bot that can play music from YouTube using search keywords or URLs. Additionally, it can display memes and jokes when prompted with the prefix "&" followed by specific commands
+This is a multipurpose Discord bot that can - 
+
+🎵 Play music from YouTube using search keywords or URLs <br>
+😂 Display memes and jokes <br>
+💻 Get Valorant Player Stats 
+
+when prompted with the prefix "&" followed by specific commands
 
 # Installation
 To use this bot, you will need to have the following prerequisites:
