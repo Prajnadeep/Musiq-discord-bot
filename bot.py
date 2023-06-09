@@ -129,6 +129,25 @@ async def stop(ctx):
     if voice_client.is_playing():
         voice_client.stop()
 
+# AUTO DISCONNECT
+@bot.event
+async def on_voice_state_update(member, before, after):
+    if member == bot.user:
+        return
+
+    # Check if the bot is connected to a voice channel
+    voice_client = member.guild.voice_client
+    if not voice_client:
+        return
+
+    # Check if everyone has left the voice channel
+    voice_channel = voice_client.channel
+    if len(voice_channel.members) == 1:  # Only the bot is in the voice channel
+        await asyncio.sleep(30)  # Wait for 30 seconds
+        if len(voice_channel.members) == 1:  # Still no one has joined
+            await voice_client.disconnect()        
+        
+
 # DISPLAY JOKE
 @bot.command(description="display a joke")
 async def joke(ctx):
