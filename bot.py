@@ -193,6 +193,7 @@ async def valo(ctx, username, tag):
                 playerTagline = profileData['data']['tag']
                 playerCardUrl = profileData['data']['card']['wide']
                 playerAccountLevel = profileData['data']['account_level']
+                playerUUID = profileData['data']['puuid']
                 
                 # Tier Info
                 rankingURL = 'https://api.henrikdev.xyz/valorant/v2/mmr/ap/'+username+'/'+tag
@@ -203,12 +204,40 @@ async def valo(ctx, username, tag):
                 currentTierImage = rankData['data']['current_data']['images']['small']
                 highestTier = rankData['data']['highest_rank']['patched_tier']
 
+                # Last Match
+                lastMatchURL = 'https://api.henrikdev.xyz/valorant/v3/matches/ap/'+username+'/'+tag
+                lastMatch = requests.get(lastMatchURL)
+                lastMatchData = json.loads(lastMatch.text)
+
+                lastMatchMap = lastMatchData['data'][0]['metadata']['map']
+                lastMatchMode = lastMatchData['data'][0]['metadata']['mode']
+
+                allplayersArray = lastMatchData['data'][0]['players']['all_players']
+
+                # Last Match Data
+                for player in allplayersArray:
+                    if playerUUID == player['puuid']:
+                        character = player['character']
+                        kills = player['stats']['kills']
+                        deaths = player['stats']['deaths']
+                        assists = player['stats']['assists']
+
+
                 # DISPLAY RESULTS
                 embedVar = discord.Embed(title="VALORANT Player Stats", color=0x00ff00)
-                embedVar.add_field(name="\u200b", value='**ID** : '+playerName+' #'+playerTagline, inline=False)
-                embedVar.add_field(name="\u200b", value='**Account Level** : '+str(playerAccountLevel), inline=False)
-                embedVar.add_field(name="\u200b", value='**Current Rank** : '+currentTier, inline=False)
-                embedVar.add_field(name="\u200b", value='**Highest Rank** : '+highestTier, inline=False)
+                embedVar.add_field(name="\u200b", value='** 😎 ID** : '+playerName+' #'+playerTagline, inline=False)
+                embedVar.add_field(name="\u200b", value='** ⌛ Account Level** : '+str(playerAccountLevel), inline=False)
+                embedVar.add_field(name="\u200b", value='** ▶ Current Rank** : '+currentTier, inline=False)
+                embedVar.add_field(name="\u200b", value='** ⬆ Highest Rank** : '+highestTier, inline=False)
+                
+                embedVar.add_field(name='\u200b',value='**------------------ LAST MATCH DETAILS ------------------**',inline=False)
+                embedVar.add_field(name='\u200b',value='** 🗺 Map** - '+lastMatchMap, inline=False)
+                embedVar.add_field(name='\u200b',value='** ⚔ Mode**: '+lastMatchMode, inline=False)
+                embedVar.add_field(name='\u200b',value='** 🥴 Character**: '+character, inline=False)
+                embedVar.add_field(name='\u200b',value='** 🔫 Kills**- '+str(kills), inline=False)
+                embedVar.add_field(name='\u200b',value='** ☠ Deaths**- '+str(deaths), inline=False)
+                embedVar.add_field(name='\u200b',value='** ❤ Assists**- '+str(assists), inline=False)
+
                 embedVar.set_thumbnail(url=currentTierImage)
                 embedVar.set_image(url=playerCardUrl)
                 await ctx.send(embed=embedVar)
