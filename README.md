@@ -63,7 +63,7 @@ Once the bot is running and invited to your server, you can use the following co
 <br>
 
 ### 💻 Get Valorant Player Details - 
-![Player Details](https://github.com/Prajnadeep/Musiq-discord-bot/assets/40622675/e7f7e337-5f0f-4af2-82b9-e586e51bc0ff)
+![valo](https://github.com/Prajnadeep/Musiq-discord-bot/assets/40622675/cf098c69-1a98-4683-ae57-232da796bc2b)
 
 <br>
 
