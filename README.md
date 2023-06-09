@@ -57,22 +57,22 @@ Once the bot is running and invited to your server, you can use the following co
   
 # Demo
 
-### Play Music - 
+### 🎵 Play Music - 
 ![Play Music](https://github.com/Prajnadeep/Musiq-discord-bot/assets/40622675/d8a351f9-b59f-4e13-8419-aeeaf22338cd) 
 
 <br>
 
-### Get Valorant Player Details - 
+### 💻 Get Valorant Player Details - 
 ![Player Details](https://github.com/Prajnadeep/Musiq-discord-bot/assets/40622675/e7f7e337-5f0f-4af2-82b9-e586e51bc0ff)
 
 <br>
 
-### Display a Meme - 
+### 😆 Display a Meme - 
 ![Meme](https://github.com/Prajnadeep/Musiq-discord-bot/assets/40622675/76bfd4a2-de06-420d-8090-7c0daa816167)
 
 <br>
 
-### Fetch a Joke - 
+### 😎 Fetch a Joke - 
 ![joke](https://github.com/Prajnadeep/Musiq-discord-bot/assets/40622675/616852f4-4688-4815-8e87-0d60d54fe8a0)
 
 
@@ -80,12 +80,12 @@ Once the bot is running and invited to your server, you can use the following co
 
 
 
-# Contributing
+# Contributing 📝
 Contributions to this project are welcome. If you encounter any issues or have suggestions for improvements, please open an issue on the GitHub repository.
 
 When contributing code, make sure to follow the existing coding style and submit a pull request with your changes. Please provide clear descriptions and context for your changes to facilitate the review process.
   
-# Acknowledgments
+# Acknowledgments 🙌
   
 * [Discord.py](https://discordpy.readthedocs.io/en/stable/) - Discord API wrapper for Python.
 * [pytube](https://github.com/pytube) - Python library (and command-line utility) for downloading YouTube videos
