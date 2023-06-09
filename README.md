@@ -90,4 +90,5 @@ When contributing code, make sure to follow the existing coding style and submit
 * [Discord.py](https://discordpy.readthedocs.io/en/stable/) - Discord API wrapper for Python.
 * [pytube](https://github.com/pytube) - Python library (and command-line utility) for downloading YouTube videos
 * [FFmpeg](https://ffmpeg.org/) - Open-source software for handling multimedia data.
+* [Valorant API](https://github.com/Henrik-3/unofficial-valorant-api) - To get player stats
 * <a href="https://www.flaticon.com/free-icons/music" title="music icons">Music icons created by Freepik - Flaticon</a>
